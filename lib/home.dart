@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/explore_screen.dart';
 import 'components/recipe_card.dart';
 import 'components/author_card.dart';
 import 'components/explore_card.dart';
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     //TODO: Replace with RecipeCard
-    const RecipeCard(),
+    ExploreScreen(),
     const AuthorCard(),
     const ExploreCard(),
   ];
@@ -46,11 +47,11 @@ class _HomeState extends State<Home> {
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Recipe'),
+              icon: Icon(Icons.card_giftcard), label: 'Explore'),
           const BottomNavigationBarItem(
               icon: Icon(Icons.card_giftcard), label: 'Author'),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Explore')
+              icon: Icon(Icons.card_giftcard), label: 'Buy')
         ],
       ),
     );
