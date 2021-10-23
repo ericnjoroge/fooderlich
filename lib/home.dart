@@ -47,11 +47,10 @@ class _HomeState extends State<Home> {
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Explore'),
+              icon: Icon(Icons.explore), label: 'Explore'),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Author'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.card_giftcard), label: 'Buy')
+              icon: Icon(Icons.book), label: 'Recipes'),
+          const BottomNavigationBarItem(icon: Icon(Icons.list), label: 'To Buy')
         ],
       ),
     );
