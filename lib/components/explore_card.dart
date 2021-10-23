@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
+
 import '../fooderlich_theme.dart';
+import '../models/models.dart';
 
 class ExploreCard extends StatelessWidget {
-  const ExploreCard({Key? key}) : super(key: key);
+  final ExploreRecipe recipe;
+
+  const ExploreCard({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
+
+  List<Widget> createTagChips() {
+    final chips = <Widget>[];
+    recipe.tags.take(6).forEach((element) {
+      final chip = Chip(
+        label: Text(
+          element,
+          style: FooderlichTheme.darkTextTheme.bodyText1,
+        ),
+        backgroundColor: Colors.black.withOpacity(0.7),
+      );
+      chips.add(chip);
+    });
+
+    return chips;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +35,9 @@ class ExploreCard extends StatelessWidget {
         width: 350,
         height: 450,
       ),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/mag2.png'),
+          image: AssetImage(recipe.backgroundImage),
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -39,7 +62,7 @@ class ExploreCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Recipe Trends',
+                  recipe.title,
                   style: FooderlichTheme.darkTextTheme.headline2,
                 ),
                 const SizedBox(height: 30),
@@ -51,63 +74,7 @@ class ExploreCard extends StatelessWidget {
             child: Wrap(
               alignment: WrapAlignment.start,
               spacing: 12,
-              children: [
-                Chip(
-                  label: Text(
-                    'Healthy',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                  onDeleted: () {
-                    print('delete');
-                  },
-                ),
-                Chip(
-                  label: Text(
-                    'Vegan',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                  onDeleted: () {
-                    print('delete');
-                  },
-                ),
-                Chip(
-                  label: Text(
-                    'Carrots',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                ),
-                Chip(
-                  label: Text(
-                    'LemonGrass',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                ),
-                Chip(
-                  label: Text(
-                    'Mint',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                ),
-                Chip(
-                  label: Text(
-                    'Gluten Free',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                ),
-                Chip(
-                  label: Text(
-                    'Dairy',
-                    style: FooderlichTheme.darkTextTheme.bodyText1,
-                  ),
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                )
-              ],
+              children: createTagChips(),
             ),
           )
         ],

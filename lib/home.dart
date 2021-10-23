@@ -17,10 +17,12 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    //TODO: Replace with RecipeCard
     ExploreScreen(),
-    const AuthorCard(),
-    const ExploreCard(),
+    // const AuthorCard(),
+    // const ExploreCard(),
+    //TODO: Replace with RecipeScreen
+    Container(color: Colors.green),
+    Container(color: Colors.blue),
   ];
 
   void _onItemTapped(int index) {
