@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'card1.dart';
 import 'author_card.dart';
+import 'explore_card.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required this.title}) : super(key: key);
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
     //TODO: Replace with RecipeCard
     const RecipeCard(),
     const AuthorCard(),
-    Container(color: Colors.blue)
+    const ExploreCard(),
   ];
 
   void _onItemTapped(int index) {
