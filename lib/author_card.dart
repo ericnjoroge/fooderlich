@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'author_info.dart';
+import 'fooderlich_theme.dart';
 
 class AuthorCard extends StatelessWidget {
   const AuthorCard({Key? key}) : super(key: key);
@@ -20,8 +21,32 @@ class AuthorCard extends StatelessWidget {
                 title: 'Smoothie Connoisseur',
                 authorName: 'Ricky Martins',
                 imageProvider: AssetImage('assets/avatar.png'),
-              )
+              ),
               //TODO: Add positioned text
+              Expanded(
+                child: Stack(
+                  children: [
+                    Positioned(
+                        bottom: 16,
+                        right: 16,
+                        child: Text(
+                          'Recipe',
+                          style: FooderlichTheme.lightTextTheme.headline2,
+                        )),
+                    Positioned(
+                      bottom: 70,
+                      left: 16,
+                      child: RotatedBox(
+                        quarterTurns: 3,
+                        child: Text(
+                          'Smoothies',
+                          style: FooderlichTheme.lightTextTheme.headline2,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           )),
     );

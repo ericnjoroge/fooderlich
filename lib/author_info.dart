@@ -19,7 +19,8 @@ class AuthorInfo extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
-        // TODO 3: add alignment
+        // TODO : add alignment
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
@@ -44,6 +45,16 @@ class AuthorInfo extends StatelessWidget {
                 ],
               )
             ],
+          ),
+          //TODO: Add Favorite Icon button
+          IconButton(
+            icon: const Icon(Icons.favorite_border),
+            iconSize: 30,
+            color: Colors.grey[400],
+            onPressed: () {
+              const snackBar = SnackBar(content: Text('Author Favorited'));
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
           ),
         ],
       ),
