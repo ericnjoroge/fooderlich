@@ -18,7 +18,20 @@ class ExploreScreen extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             final recipes = snapshot.data?.todayRecipes ?? [];
             //TODO: Replace with TodayRecipeListView
-            return TodaysRecipeListView(recipes: recipes);
+            return ListView(
+              scrollDirection: Axis.vertical,
+              children: [
+                TodaysRecipeListView(recipes: recipes),
+                const SizedBox(
+                  height: 16,
+                ),
+                // TODO: Replace with FriendPostListView
+                Container(
+                  height: 400,
+                  color: Colors.green,
+                )
+              ],
+            );
           } else {
             return const Center(
               child: CircularProgressIndicator(),

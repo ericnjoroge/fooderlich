@@ -4,3 +4,4 @@ export 'author_card.dart';
 export 'explore_card.dart';
 export 'circle_image.dart';
 export 'today_recipe_list_view.dart';
+export 'friend_post_tile.dart';
