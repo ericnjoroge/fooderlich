@@ -33,19 +33,23 @@ class TodaysRecipeListView extends StatelessWidget {
             height: 400,
             //TODO: Add Listview
             color: Colors.transparent,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: recipes.length,
-              itemBuilder: (context, index) {
-                final recipe = recipes[index];
-                return buildCard(recipe);
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  width: 16,
-                );
-              },
-            ),
+            child: recipes.isEmpty
+                ? const Center(
+                    child: Text('Could not find a list of recipes to display'),
+                  )
+                : ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: recipes.length,
+                    itemBuilder: (context, index) {
+                      final recipe = recipes[index];
+                      return buildCard(recipe);
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        width: 16,
+                      );
+                    },
+                  ),
           )
         ],
       ),
