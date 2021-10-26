@@ -16,11 +16,8 @@ class _HomeState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     ExploreScreen(),
-    // const AuthorCard(),
-    // const ExploreCard(),
     //TODO: Replace with RecipeScreen
     RecipesScreen(),
-    Container(color: Colors.green),
     Container(color: Colors.blue),
   ];
 
