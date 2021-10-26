@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/explore_screen.dart';
-import 'components/recipe_card.dart';
-import 'components/author_card.dart';
-import 'components/explore_card.dart';
+import 'screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required this.title}) : super(key: key);
@@ -21,6 +19,7 @@ class _HomeState extends State<Home> {
     // const AuthorCard(),
     // const ExploreCard(),
     //TODO: Replace with RecipeScreen
+    RecipesScreen(),
     Container(color: Colors.green),
     Container(color: Colors.blue),
   ];
