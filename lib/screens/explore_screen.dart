@@ -17,6 +17,7 @@ class ExploreScreen extends StatelessWidget {
           //TODO: Add Nested List Views
           if (snapshot.connectionState == ConnectionState.done) {
             final recipes = snapshot.data?.todayRecipes ?? [];
+            final friendPosts = snapshot.data?.friendPosts ?? [];
             //TODO: Replace with TodayRecipeListView
             return ListView(
               scrollDirection: Axis.vertical,
@@ -26,10 +27,7 @@ class ExploreScreen extends StatelessWidget {
                   height: 16,
                 ),
                 // TODO: Replace with FriendPostListView
-                Container(
-                  height: 400,
-                  color: Colors.green,
-                )
+                FriendPostListView(friendPosts: friendPosts),
               ],
             );
           } else {
