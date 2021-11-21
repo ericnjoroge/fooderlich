@@ -64,12 +64,67 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              //TODO: Add Callback handler
+            },
+            icon: const Icon(Icons.check),
+          )
+        ],
+        elevation: 0.0,
+        title: Text(
+          'Grocery Item',
+          style: GoogleFonts.lato(fontWeight: FontWeight.w600),
+        ),
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            //TODO: Add name Textfield
+            buildNameField(),
+            //TODO: Add importance selection
+            //TODO: Add Date Picker
+            //TODO: Add time picker
+            //TODO: Add Color picker
+            //TODO: Add slider
+            //TODO: Add Grocery Tile
+          ],
+        ),
+      ),
     );
   }
 
   //TODO: Add buildNameField
+  Widget buildNameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Item Name',
+          style: GoogleFonts.lato(fontSize: 28.0),
+        ),
+        TextField(
+          controller: _nameController,
+          cursorColor: _currentColor,
+          decoration: InputDecoration(
+              hintText: 'E.g. Apples, Banana, 1 Bag of Salt',
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: _currentColor),
+              ),
+              border: UnderlineInputBorder(
+                borderSide: BorderSide(color: _currentColor),
+              )),
+        ),
+      ],
+    );
+  }
 //TODO: Add buildImportanceField
 //TODO: Add buildDateField
 //TODO: Add buildTimeField
