@@ -24,8 +24,10 @@ Social Recipes app from Flutter Apprentice Book
 - Scroll listeners
 
 ### Chapter 6
-- Gesture based widgets
-- Dismissable Widgets
+- Gesture based widgets - tap, Double tap, long press, panning
+- Dismissable Widgets - eg to delete items
 - Input and selection widgets
 - Using Provider to manage state within components
+- Using Consumer to listen to value changes and rebuild widgets
+- Using indexed stack to save page state and scroll position
 
