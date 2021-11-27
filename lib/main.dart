@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'models/models.dart';
 import 'fooderlich_theme.dart';
 import 'home.dart';
+//TODO: Import app_router
 
 void main() {
   runApp(const Fooderlich());
@@ -18,6 +20,12 @@ class Fooderlich extends StatefulWidget {
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
   final _profileManager = ProfileManager();
+
+  //TODO: Create AppStateManager
+  //TODO: Define AppRouter
+
+  //TODO: Initialize app router
+
   @override
   Widget build(BuildContext context) {
     final theme = FooderlichTheme.light();
