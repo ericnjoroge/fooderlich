@@ -17,6 +17,7 @@ class Fooderlich extends StatefulWidget {
 
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
+  final _profileManager = ProfileManager();
   @override
   Widget build(BuildContext context) {
     final theme = FooderlichTheme.light();
@@ -30,6 +31,8 @@ class _FooderlichState extends State<Fooderlich> {
           ChangeNotifierProvider(create: (context) => TabManager()),
           //TODO: Add GroceryManager Provider
           ChangeNotifierProvider(create: (context) => _groceryManager),
+          ChangeNotifierProvider(create: (context) => _profileManager),
+          //TODO: Add AppStateManager Provider
         ],
         child: const Home(title: 'Fooderlich'),
       ),
