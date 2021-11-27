@@ -1,16 +1,33 @@
-# fooderlich
+# Fooderlich
 
-A new Flutter project.
+Social Recipes app from Flutter Apprentice Book
 
-## Getting Started
+## Lessons picked up
+### Chapter 3
+- Basic Widgets
+- Structure and navigation
+- Positioning widgets
+- Theming an application
 
-This project is a starting point for a Flutter application.
+### Chapter 4
+- Widgets and Widget Trees
+- Widget Types - Stateless, Stateful, Inherited Widgets
+- Widget Rendering
+- Widget lifecycle
+- Using Flutter Inspector and Devtools to debug a flutter app
 
-A few resources to get you started if this is your first Flutter project:
+### Chapter 5
+- Using Scrollable Widgets
+- Nesting scroll views
+- Leveraging Gridview to layout 2D views- Grid delegates
+- Using Future Builder for asynchronous operations
+- Scroll listeners
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Chapter 6
+- Gesture based widgets - tap, Double tap, long press, panning
+- Dismissable Widgets - eg to delete items
+- Input and selection widgets
+- Using Provider to manage state within components
+- Using Consumer to listen to value changes and rebuild widgets
+- Using indexed stack to save page state and scroll position
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
