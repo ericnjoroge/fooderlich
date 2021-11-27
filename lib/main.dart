@@ -8,10 +8,15 @@ void main() {
   runApp(const Fooderlich());
 }
 
-class Fooderlich extends StatelessWidget {
+class Fooderlich extends StatefulWidget {
   const Fooderlich({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<Fooderlich> createState() => _FooderlichState();
+}
+
+class _FooderlichState extends State<Fooderlich> {
+  final _groceryManager = GroceryManager();
   @override
   Widget build(BuildContext context) {
     final theme = FooderlichTheme.light();
@@ -24,7 +29,7 @@ class Fooderlich extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => TabManager()),
           //TODO: Add GroceryManager Provider
-          ChangeNotifierProvider(create: (context) => GroceryManager()),
+          ChangeNotifierProvider(create: (context) => _groceryManager),
         ],
         child: const Home(title: 'Fooderlich'),
       ),
