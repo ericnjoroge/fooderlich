@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 200,
               image: AssetImage('assets/fooderlich_assets/rw_logo.png'),
             ),
-            const Text('Initializinng...'),
+            const Text('Initializing...'),
           ],
         ),
       ),

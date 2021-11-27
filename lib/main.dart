@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 import 'models/models.dart';
 import 'fooderlich_theme.dart';
-import 'home.dart';
+import 'screens/splash_screen.dart';
 //TODO: Import app_router
 
 void main() {
@@ -42,7 +43,22 @@ class _FooderlichState extends State<Fooderlich> {
           ChangeNotifierProvider(create: (context) => _profileManager),
           //TODO: Add AppStateManager Provider
         ],
-        child: const Home(title: 'Fooderlich'),
+        child: Consumer<ProfileManager>(
+          builder: (context, profileManager, child) {
+            ThemeData theme;
+            if (profileManager.darkMode) {
+              theme = FooderlichTheme.dark();
+            } else {
+              theme = FooderlichTheme.light();
+            }
+
+            return MaterialApp(
+              theme: theme,
+              title: 'Fooderlich',
+              home: const SplashScreen(),
+            );
+          },
+        ),
       ),
     );
   }
