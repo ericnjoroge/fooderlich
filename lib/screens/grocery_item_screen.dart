@@ -50,6 +50,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
   TimeOfDay _timeOfDay = TimeOfDay.now();
   Color _currentColor = Colors.green;
   int _currentSliderValue = 0;
+  bool _isComplete = false;
 
   //TODO: Add initState()
   @override
@@ -61,6 +62,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
       _currentSliderValue = originalItem.quantity;
       _importance = originalItem.importance;
       _currentColor = originalItem.color;
+      _isComplete = originalItem.isComplete;
       final date = originalItem.date;
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
       _dueDate = date;
@@ -94,6 +96,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
                   importance: _importance,
                   color: _currentColor,
                   quantity: _currentSliderValue,
+                  isComplete: _isComplete,
                   date: DateTime(
                     _dueDate.year,
                     _dueDate.month,

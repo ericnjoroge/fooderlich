@@ -42,12 +42,9 @@ class _FooderlichState extends State<Fooderlich> {
 
     return MaterialApp(
       title: 'Fooderlich',
-      // TODO: Create theme
       theme: theme,
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => TabManager()),
-          //TODO: Add GroceryManager Provider
           ChangeNotifierProvider(create: (context) => _groceryManager),
           ChangeNotifierProvider(create: (context) => _profileManager),
           ChangeNotifierProvider(create: (context) => _appStateManager),

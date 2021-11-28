@@ -4,7 +4,6 @@ export 'simple_recipe.dart';
 export 'explore_data.dart';
 export 'grocery_item.dart';
 export 'user.dart';
-export 'tab_manager.dart';
 export 'grocery_manager.dart';
 export 'profile_manager.dart';
 export 'app_state_manager.dart';

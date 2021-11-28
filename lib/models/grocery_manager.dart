@@ -30,6 +30,7 @@ class GroceryManager extends ChangeNotifier {
 
   void addItem(GroceryItem item) {
     _groceryItems.add(item);
+    _createNewItem = false;
     notifyListeners();
   }
 
