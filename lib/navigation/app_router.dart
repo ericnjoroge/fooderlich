@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/screens/webview_screen.dart';
 
 import '../models/models.dart';
 import '../screens/screens.dart';
@@ -70,6 +71,7 @@ class AppRouter extends RouterDelegate
         if (profileManager.didSelectUser)
           ProfileScreen.page(profileManager.getUser),
         //TODO: Add WebView Screen
+        if (profileManager.didTapOnExternalLink) WebViewScreen.page(),
       ],
     );
   }
@@ -93,7 +95,9 @@ class AppRouter extends RouterDelegate
       profileManager.tapOnProfile(false);
     }
     //TODO: Handle state when user closes WebView Screen
-
+    if (route.settings.name == FooderlichPages.externalLink) {
+      profileManager.tapOnExternalLink(false);
+    }
     return true;
   }
 

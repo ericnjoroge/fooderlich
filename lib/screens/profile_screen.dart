@@ -65,12 +65,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: const Text('View akenyandev.co.ke'),
           onTap: () {
             //TODO: Open akenyandev.co.ke
+            Provider.of<ProfileManager>(context, listen: false)
+                .tapOnExternalLink(true);
           },
         ),
         ListTile(
           title: const Text('Log Out'),
           onTap: () {
             //TODO: Logout User
+            Provider.of<ProfileManager>(context, listen: false)
+                .tapOnProfile(false);
+            Provider.of<AppStateManager>(context, listen: false).logout();
           },
         )
       ],
