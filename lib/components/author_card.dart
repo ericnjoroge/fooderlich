@@ -23,13 +23,11 @@ class AuthorCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(10.0))),
           child: Column(
             children: [
-              //TODO: Add author Info
               AuthorInfo(
                 title: recipe.role,
                 authorName: recipe.authorName,
                 imageProvider: AssetImage(recipe.profileImage),
               ),
-              //TODO: Add positioned text
               Expanded(
                 child: Stack(
                   children: [
