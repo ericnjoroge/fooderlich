@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-//Import TabManager Provider
 import '../models/models.dart';
 
-//Import Screens
 import 'explore_screen.dart';
 import 'recipes_screen.dart';
 import 'grocery_screen.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key, required this.title}) : super(key: key);
+  //TODO: Home MaterialPage Helper
+  static MaterialPage page(String title, int currentTab) {
+    return MaterialPage(
+        name: FooderlichPages.home,
+        key: ValueKey(FooderlichPages.home),
+        child: Home(
+          title: title,
+          currentTab: currentTab,
+        ));
+  }
+
+  const Home({
+    Key? key,
+    required this.title,
+    required this.currentTab,
+  }) : super(key: key);
 
   final String title;
+  final int currentTab;
 
   @override
   State<Home> createState() => _HomeState();
@@ -27,7 +41,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TabManager>(builder: (context, tabManager, child) {
+    return Consumer(builder: (context, appStateManager, child) {
       return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -40,15 +54,16 @@ class _HomeState extends State<Home> {
         ),
         // TODO: Replace Body
         body: IndexedStack(
-          index: tabManager.selectedTab,
+          index: widget.currentTab,
           children: pages,
         ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor:
               Theme.of(context).textSelectionTheme.selectionColor,
-          currentIndex: tabManager.selectedTab,
+          currentIndex: widget.currentTab,
           onTap: (index) {
-            tabManager.goToTab(index);
+            //TODO: Update user's selected tab
+            Provider.of<AppStateManager>(context, listen: false).goToTab(index);
           },
           items: <BottomNavigationBarItem>[
             const BottomNavigationBarItem(
