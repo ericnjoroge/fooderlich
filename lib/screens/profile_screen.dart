@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../components/circle_image.dart';
 import '../models/models.dart';
@@ -63,10 +65,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         buildDarkModeRow(),
         ListTile(
           title: const Text('View akenyandev.co.ke'),
-          onTap: () {
-            //TODO: Open akenyandev.co.ke
-            Provider.of<ProfileManager>(context, listen: false)
-                .tapOnExternalLink(true);
+          onTap: () async {
+            if (kIsWeb) {
+              await launch('https://www.akenyandev.co.ke/');
+            } else {
+              Provider.of<ProfileManager>(context, listen: false)
+                  .tapOnExternalLink(true);
+            }
           },
         ),
         ListTile(
