@@ -23,7 +23,6 @@ class GroceryTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          //TODO: Add row to group (name, date, importance)
           Row(
             children: [
               Container(
@@ -56,7 +55,6 @@ class GroceryTile extends StatelessWidget {
               )
             ],
           ),
-          //TODO: Add row to group (quantity, checkbox)
           Row(
             children: [
               Text(
@@ -72,7 +70,6 @@ class GroceryTile extends StatelessWidget {
     );
   }
 
-  //TODO: Add BuildImportance()
   Widget buildImportance() {
     if (item.importance == Importance.low) {
       return Text(
@@ -99,7 +96,6 @@ class GroceryTile extends StatelessWidget {
     }
   }
 
-//TODO: Add buildDate()
   Widget buildDate() {
     final dateFormatter = DateFormat('MMMM dd h:mm a');
     final dateString = dateFormatter.format(item.date);
@@ -110,7 +106,6 @@ class GroceryTile extends StatelessWidget {
     );
   }
 
-//TODO: Add buildCheckBox()
   Widget buildCheckbox() {
     return Checkbox(
       value: item.isComplete,

@@ -7,9 +7,26 @@ import '../models/models.dart';
 import '../components/grocery_tile.dart';
 
 class GroceryItemsScreen extends StatefulWidget {
+  static MaterialPage page({
+    GroceryItem? item,
+    int index = -1,
+    required Function(GroceryItem) onCreate,
+    required Function(GroceryItem, int) onUpdate,
+  }) {
+    return MaterialPage(
+        name: FooderlichPages.groceryItemsDetails,
+        key: ValueKey(FooderlichPages.groceryItemsDetails),
+        child: GroceryItemsScreen(
+            originalItem: item,
+            index: index,
+            onCreate: onCreate,
+            onUpdate: onUpdate));
+  }
+
   final Function(GroceryItem) onCreate;
-  final Function(GroceryItem) onUpdate;
+  final Function(GroceryItem, int) onUpdate;
   final GroceryItem? originalItem;
+  final int index;
   final bool isUpdating;
 
   const GroceryItemsScreen({
@@ -17,6 +34,7 @@ class GroceryItemsScreen extends StatefulWidget {
     required this.onCreate,
     required this.onUpdate,
     this.originalItem,
+    this.index = -1,
   })  : isUpdating = (originalItem != null),
         super(key: key);
 
@@ -25,7 +43,6 @@ class GroceryItemsScreen extends StatefulWidget {
 }
 
 class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
-  //TODO: Add grocery item screen state properties
   final _nameController = TextEditingController();
   String _name = '';
   Importance _importance = Importance.low;
@@ -33,6 +50,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
   TimeOfDay _timeOfDay = TimeOfDay.now();
   Color _currentColor = Colors.green;
   int _currentSliderValue = 0;
+  bool _isComplete = false;
 
   //TODO: Add initState()
   @override
@@ -44,6 +62,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
       _currentSliderValue = originalItem.quantity;
       _importance = originalItem.importance;
       _currentColor = originalItem.color;
+      _isComplete = originalItem.isComplete;
       final date = originalItem.date;
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
       _dueDate = date;
@@ -77,6 +96,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
                   importance: _importance,
                   color: _currentColor,
                   quantity: _currentSliderValue,
+                  isComplete: _isComplete,
                   date: DateTime(
                     _dueDate.year,
                     _dueDate.month,
@@ -86,7 +106,7 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
                   ));
 
               if (widget.isUpdating) {
-                widget.onUpdate(groceryItem);
+                widget.onUpdate(groceryItem, widget.index);
               } else {
                 widget.onCreate(groceryItem);
               }

@@ -31,3 +31,9 @@ Social Recipes app from Flutter Apprentice Book
 - Using Consumer to listen to value changes and rebuild widgets
 - Using indexed stack to save page state and scroll position
 
+### Chapter 7
+- Managing App state with Provider
+- Using Navigator 2
+- Using the router widget to listen to navigation changes
+- Setting the Router's Back button dispatcher for platform system events
+- Adding splash screen
