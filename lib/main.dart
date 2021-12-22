@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'models/models.dart';
 import 'fooderlich_theme.dart';
 import 'navigation/app_router.dart';
+import 'navigation/app_route_parser.dart';
 
 void main() {
   runApp(const Fooderlich());
@@ -22,6 +23,7 @@ class _FooderlichState extends State<Fooderlich> {
   final _appStateManager = AppStateManager();
 
   late AppRouter _appRouter;
+  final routeParser = AppRouteParser();
 
   @override
   void initState() {
