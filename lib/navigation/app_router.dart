@@ -86,8 +86,28 @@ class AppRouter extends RouterDelegate<AppLink>
   }
 
   //TODO: Convert App State to app Link
+  AppLink getCurrentPath() {
+    if (!appStateManager.isLoggedIn) {
+      return AppLink(location: AppLink.loginPath);
+    } else if (!appStateManager.isOnboardingComplete) {
+      return AppLink(location: AppLink.onBoardingPath);
+    } else if (profileManager.didSelectUser) {
+      return AppLink(location: AppLink.profilePath);
+    } else if (groceryManager.isCreatingNewItem) {
+      return AppLink(location: AppLink.itemPath);
+    } else if (groceryManager.selectedGroceryItem != null) {
+      final id = groceryManager.selectedGroceryItem?.id;
+      return AppLink(location: AppLink.itemPath, itemId: id);
+    } else {
+      return AppLink(
+          location: AppLink.homePath,
+          currentTab: appStateManager.getSelectedTab);
+    }
+  }
 
   //TODO: Apply Configuration helper
+  @override
+  AppLink get currentConfiguration => getCurrentPath();
 
   //TODO: Replace setNewRoutePath
   @override
