@@ -26,7 +26,7 @@ class _FooderlichState extends State<Fooderlich> {
   final routeParser = AppRouteParser();
 
   @override
-  void initState() {
+  void initState() {   
     _appRouter = AppRouter(
       appStateManager: _appStateManager,
       groceryManager: _groceryManager,
@@ -57,13 +57,12 @@ class _FooderlichState extends State<Fooderlich> {
               theme = FooderlichTheme.light();
             }
 
-            return MaterialApp(
+            return MaterialApp.router(
               theme: theme,
               title: 'Fooderlich',
-              home: Router(
-                routerDelegate: _appRouter,
-                backButtonDispatcher: RootBackButtonDispatcher(),
-              ),
+              backButtonDispatcher: RootBackButtonDispatcher(),
+              routeInformationParser: routeParser, 
+              routerDelegate: _appRouter,
             );
           },
         ),
