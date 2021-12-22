@@ -50,7 +50,6 @@ class AppRouter extends RouterDelegate<AppLink>
                 groceryManager.addItem(item);
               },
               onUpdate: (item, index) {}),
-
         if (groceryManager.selectedIndex != -1)
           GroceryItemsScreen.page(
               item: groceryManager.selectedGroceryItem,
@@ -89,8 +88,30 @@ class AppRouter extends RouterDelegate<AppLink>
   //TODO: Convert App State to app Link
 
   //TODO: Apply Configuration helper
-  
+
   //TODO: Replace setNewRoutePath
   @override
-  Future<void> setNewRoutePath(configuration) async => null;
+  Future<void> setNewRoutePath(AppLink newLink) async {
+    switch (newLink.location) {
+      case AppLink.profilePath:
+        profileManager.tapOnProfile(true);
+        break;
+      case AppLink.itemPath:
+        final itemId = newLink.itemId;
+        if (itemId != null) {
+          groceryManager.setSelectedGroceryItem(itemId);
+        } else {
+          groceryManager.createNewItem();
+        }
+        profileManager.tapOnProfile(false);
+        break;
+      case AppLink.homePath:
+        appStateManager.goToTab(newLink.currentTab ?? 0);
+        profileManager.tapOnProfile(false);
+        groceryManager.groceryItemTapped(-1);
+        break;
+      default:
+        break;
+    }
+  }
 }
