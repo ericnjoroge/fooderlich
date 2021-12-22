@@ -24,7 +24,6 @@ class FriendPostListView extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          // TODO: Add PostListView here
           ListView.separated(
             primary: false,
             physics: const NeverScrollableScrollPhysics(),

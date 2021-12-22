@@ -6,7 +6,6 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../models/models.dart';
 
 class WebViewScreen extends StatefulWidget {
-  //TODO: WebViewScreen MaterialPage Helper
   static MaterialPage page() {
     return MaterialPage(
         name: FooderlichPages.externalLink,

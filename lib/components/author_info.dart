@@ -26,7 +26,6 @@ class _AuthorInfoState extends State<AuthorInfo> {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
-        // TODO : add alignment
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -53,7 +52,6 @@ class _AuthorInfoState extends State<AuthorInfo> {
               )
             ],
           ),
-          //TODO: Add Favorite Icon button
           IconButton(
             icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,

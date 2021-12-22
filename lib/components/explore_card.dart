@@ -44,7 +44,6 @@ class ExploreCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // TODO: add dark overlay
           Container(
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.6),
@@ -69,7 +68,6 @@ class ExploreCard extends StatelessWidget {
               ],
             ),
           ),
-          //TODO: add chip widget children
           Center(
             child: Wrap(
               alignment: WrapAlignment.start,

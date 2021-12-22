@@ -15,7 +15,6 @@ class RecipeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: Container(
-      //TODO: Add a stack of text
       child: Stack(
         children: [
           Text(

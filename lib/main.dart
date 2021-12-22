@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import 'models/models.dart';
 import 'fooderlich_theme.dart';
-//TODO: Import app_router
 import 'navigation/app_router.dart';
 
 void main() {
@@ -20,12 +19,10 @@ class Fooderlich extends StatefulWidget {
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
   final _profileManager = ProfileManager();
-  //TODO: Create AppStateManager
   final _appStateManager = AppStateManager();
 
-  //TODO: Define AppRouter
   late AppRouter _appRouter;
-  //TODO: Initialize app router
+
   @override
   void initState() {
     _appRouter = AppRouter(
@@ -48,7 +45,6 @@ class _FooderlichState extends State<Fooderlich> {
           ChangeNotifierProvider(create: (context) => _groceryManager),
           ChangeNotifierProvider(create: (context) => _profileManager),
           ChangeNotifierProvider(create: (context) => _appStateManager),
-          //TODO: Add AppStateManager Provider
         ],
         child: Consumer<ProfileManager>(
           builder: (context, profileManager, child) {
@@ -64,7 +60,6 @@ class _FooderlichState extends State<Fooderlich> {
               title: 'Fooderlich',
               home: Router(
                 routerDelegate: _appRouter,
-                //TODO: Add backButtonDispatcher
                 backButtonDispatcher: RootBackButtonDispatcher(),
               ),
             );
