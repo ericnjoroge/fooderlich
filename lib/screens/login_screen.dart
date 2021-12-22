@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../models/models.dart';
 
 class LoginScreen extends StatelessWidget {
-  //TODO: LoginScreen MaterialPage Helper
   static MaterialPage page() {
     return MaterialPage(
         name: FooderlichPages.loginPath,
@@ -70,7 +69,6 @@ class LoginScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () async {
-          //TODO: Login -> Navigate to home
           Provider.of<AppStateManager>(context, listen: false)
               .login('awesomeName', 'awesomePass');
         },

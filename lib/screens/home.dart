@@ -8,7 +8,6 @@ import 'recipes_screen.dart';
 import 'grocery_screen.dart';
 
 class Home extends StatefulWidget {
-  //TODO: Home MaterialPage Helper
   static MaterialPage page(String title, int currentTab) {
     return MaterialPage(
         name: FooderlichPages.home,
@@ -52,7 +51,6 @@ class _HomeState extends State<Home> {
             profileButton(),
           ],
         ),
-        // TODO: Replace Body
         body: IndexedStack(
           index: widget.currentTab,
           children: pages,
@@ -62,7 +60,6 @@ class _HomeState extends State<Home> {
               Theme.of(context).textSelectionTheme.selectionColor,
           currentIndex: widget.currentTab,
           onTap: (index) {
-            //TODO: Update user's selected tab
             Provider.of<AppStateManager>(context, listen: false).goToTab(index);
           },
           items: <BottomNavigationBarItem>[
@@ -89,7 +86,6 @@ class _HomeState extends State<Home> {
           ),
         ),
         onTap: () {
-          //TODO: home -> profile
           Provider.of<ProfileManager>(context, listen: false)
               .tapOnProfile(true);
         },

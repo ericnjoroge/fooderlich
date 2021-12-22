@@ -7,26 +7,22 @@ class EmptyGroceryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Add layout widgets
     return Padding(
       padding: const EdgeInsets.all(30.0),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //TODO: Add empty image
             Flexible(
               child: AspectRatio(
                 aspectRatio: 1 / 1,
                 child: Image.asset('assets/fooderlich_assets/empty_list.png'),
               ),
             ),
-            //TODO: Add empty screen title
             const Text(
               'No Groceries',
               style: TextStyle(fontSize: 21.0),
             ),
-            //TODO: Add empty Screen subtitle
             const SizedBox(
               height: 16.0,
             ),
@@ -35,7 +31,6 @@ class EmptyGroceryScreen extends StatelessWidget {
               'Tap the + button to write them down!',
               textAlign: TextAlign.center,
             ),
-            //TODO: Add browse recipes button
             MaterialButton(
                 textColor: Colors.white,
                 child: const Text('Browse Recipes'),
@@ -43,7 +38,6 @@ class EmptyGroceryScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30.0)),
                 color: Colors.green,
                 onPressed: () {
-                  //TODO: Go to Recipes Tab
                   Provider.of<AppStateManager>(context, listen: false)
                       .goToRecipes();
                 }),

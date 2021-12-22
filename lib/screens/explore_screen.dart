@@ -44,15 +44,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Add TodayRecipeListView FutureBuilder
     return FutureBuilder(
         future: mockService.getExploreData(),
         builder: (context, AsyncSnapshot<ExploreData> snapshot) {
-          //TODO: Add Nested List Views
           if (snapshot.connectionState == ConnectionState.done) {
             final recipes = snapshot.data?.todayRecipes ?? [];
             final friendPosts = snapshot.data?.friendPosts ?? [];
-            //TODO: Replace with TodayRecipeListView
             return ListView(
               controller: _controller,
               scrollDirection: Axis.vertical,
@@ -61,7 +58,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 const SizedBox(
                   height: 16,
                 ),
-                // TODO: Replace with FriendPostListView
                 FriendPostListView(friendPosts: friendPosts),
               ],
             );

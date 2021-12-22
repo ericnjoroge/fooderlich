@@ -12,7 +12,6 @@ class GroceryListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Replace with ListView
     final groceryItems = manager.groceryItems;
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -20,8 +19,6 @@ class GroceryListScreen extends StatelessWidget {
         itemCount: groceryItems.length,
         itemBuilder: (context, index) {
           final item = groceryItems[index];
-          //TODO: Wrap in dismissable,
-          //TODO: Wrap in an InkWell
           return Dismissible(
             key: Key(item.id),
             direction: DismissDirection.endToStart,
@@ -50,7 +47,6 @@ class GroceryListScreen extends StatelessWidget {
                 },
               ),
               onTap: () {
-                //TODO: Tap on grocery item
                 manager.groceryItemTapped(index);
               },
             ),

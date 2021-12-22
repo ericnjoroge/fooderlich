@@ -52,7 +52,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
   int _currentSliderValue = 0;
   bool _isComplete = false;
 
-  //TODO: Add initState()
   @override
   void initState() {
     final originalItem = widget.originalItem;
@@ -75,7 +74,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     super.initState();
   }
 
-  //TODO: Add dispose()
   @override
   void dispose() {
     _nameController.dispose();
@@ -89,7 +87,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              //TODO: Add Callback handler
               final groceryItem = GroceryItem(
                   id: widget.originalItem?.id ?? const Uuid().v1(),
                   name: _nameController.text,
@@ -124,25 +121,18 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            //TODO: Add name Textfield
             buildNameField(),
-            //TODO: Add importance selection
             buildImportanceField(),
-            //TODO: Add Date Picker
             buildDateField(context),
-            //TODO: Add time picker
             buildTimeField(context),
-            //TODO: Add Color picker
             const SizedBox(
               height: 10.0,
             ),
             buildColorPicker(context),
-            //TODO: Add slider
             const SizedBox(
               height: 10.0,
             ),
             buildQuantityField(),
-            //TODO: Add Grocery Tile
             GroceryTile(
                 item: GroceryItem(
                     id: 'previewMode',
@@ -163,7 +153,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-  //TODO: Add buildNameField
   Widget buildNameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -191,7 +180,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-//TODO: Add buildImportanceField
   Widget buildImportanceField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -248,7 +236,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-//TODO: Add buildDateField
   Widget buildDateField(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -284,7 +271,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-//TODO: Add buildTimeField
   Widget buildTimeField(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,7 +301,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-//TODO: Add buildColorPicker
   Widget buildColorPicker(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -365,7 +350,6 @@ class _GroceryItemsScreenState extends State<GroceryItemsScreen> {
     );
   }
 
-//TODO: Add buildQuantityField
   Widget buildQuantityField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
