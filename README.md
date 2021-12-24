@@ -37,3 +37,9 @@ Social Recipes app from Flutter Apprentice Book
 - Using the router widget to listen to navigation changes
 - Setting the Router's Back button dispatcher for platform system events
 - Adding splash screen
+
+### Chapter 8
+- Parse URL strings and query parameters
+- Convert a URl to and from an app state
+- Support Deep Linking on iOS and Android
+- Support URL driven navigation in the browser for Flutter apps
